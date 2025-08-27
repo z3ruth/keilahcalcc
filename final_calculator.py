@@ -242,4 +242,6 @@ footer = ttk.Frame(root, padding=10); footer.pack(fill="x")
 ttk.Button(footer, text="Save Image ⤓", command=save_image).pack(side="right", padx=5)
 ttk.Button(footer, text="Share →", command=save_image).pack(side="right")
 
+
 root.mainloop()
+
