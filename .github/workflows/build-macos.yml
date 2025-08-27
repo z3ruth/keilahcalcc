@@ -1,7 +1,6 @@
 # Nombre del workflow que verás en la lista de Actions
 name: Build macOS App for Keilah
 
-# --- LA CORRECCIÓN ESTÁ AQUÍ ---
 # Disparador: Permite ejecutar este workflow manualmente desde la pestaña Actions
 on:
   workflow_dispatch:
@@ -13,13 +12,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # 1. Descarga tu código del repositorio a la máquina virtual
+      # 1. Descarga tu código del repositorio a la máquina virtual (versión actualizada)
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2. Configura Python 3.9 en la máquina virtual
+      # 2. Configura Python en la máquina virtual (versión actualizada)
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -34,9 +33,9 @@ jobs:
         run: |
           pyinstaller --onefile --windowed --name "FinancialCalculator_For_Keilah" --icon="icono.icns" final_calculator.py
       
-      # 5. Sube la aplicación construida como un "artefacto" para que puedas descargarla
+      # 5. Sube la app construida como un "artefacto" (versión actualizada - ¡AQUÍ ESTÁ LA CORRECCIÓN!)
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macOS-App
           path: dist/FinancialCalculator_For_Keilah.app
